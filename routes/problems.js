@@ -1,12 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const bookController = require('../controllers/problemController');
+const problemController = require('../controllers/problemController');
 
-/* GET list of books. */
-router.get('/', bookController.index);
+/* GET list of problems. */
+router.get('/', problemController.index);
 
-router.get('/detail/:id', bookController.details);
+router.get('/question/:id', problemController.details);
 
-router.post('/detail/:id', bookController.addCmt);
+router.post('/question/:id', problemController.addCmt);
+
+router.get('/submit/')
 
 module.exports = router;
