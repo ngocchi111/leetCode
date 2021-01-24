@@ -8,12 +8,11 @@ exports.index = async (req, res, next) => {
     const pageNumber = +req.query.page || 1;
     const itemPerPage = +req.query.item || 10;
     const filter={};
-    filter.status = 1;
     const q= req.query.q;
     var link ="";
     if (q)
     {
-        filter.title= new RegExp(q, 'i');
+        filter.question= new RegExp(q, 'i');
         link=link+"&q="+q;
     }
     const problemTotal = await problemModel.count(filter);

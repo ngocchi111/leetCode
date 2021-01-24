@@ -1,12 +1,12 @@
 <table> 
   <tr>
-    <td width="60%">TÊN BÀI</td>
-    <td width="30%">MÃ BÀI</td>
+    <td width="90%">TÊN BÀI</td>
+    <td width="60%">MÃ BÀI</td>
   </tr>
-  {{#each}}
+  {{#each problems}}
   <tr>
-    <td width="60%"><a href="/problems/question/{{_id}}">{{name}}</a></td>
-    <td width="30%"><a href="/problems/question/{{_id}}">{{ID}}</a></td>
+    <td width="90%"><a href="/problems/question/{{ID}}">{{name}}</a></td>
+    <td width="60%"><a href="/problems/question/{{ID}}">{{ID}}</a></td>
   </tr>
   {{/each}}
 </table>

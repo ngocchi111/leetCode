@@ -4,7 +4,10 @@ const { authenticate } = require('passport');
 
 exports.list = async (filter, pageNumber, itemPerPage) => {
     const problemsCollection = db().collection('problems');
+    console.log(problemsCollection);
     const problems = await problemsCollection.find(filter).limit(itemPerPage).skip(itemPerPage*(pageNumber-1)).toArray();
+    console.log("problems:                ksldlsad"+problems);
+    console.log("filter"+filter);
     return problems;
 }
 
@@ -16,6 +19,6 @@ exports.count= async (filter) =>{
 
 exports.get = async (id) => {
     const problemsCollection = db().collection('problems');
-    const problem = await problemsCollection.findOne({_id: ObjectId(id)})
+    const problem = await problemsCollection.findOne({ID: id});
     return problem;
 }
