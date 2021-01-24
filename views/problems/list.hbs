@@ -1,0 +1,35 @@
+<table> 
+  <tr>
+    <td width="60%">TÊN BÀI</td>
+    <td width="30%">MÃ BÀI</td>
+  </tr>
+  {{#each}}
+  <tr>
+    <td width="60%"><a href="/problems/{{_id}}">{{name}}</a></td>
+    <td width="30%"><a href="/problems/{{_id}}">{{ID}}</a></td>
+  </tr>
+  {{/each}}
+</table>
+
+
+<main>
+    {{#if hasPrevPage}}
+        {{#if _status}}
+        <a href="/problems?page=1{{link}}"><h1> << </h1></a>
+        <a href="/problems?page={{prevPage}}{{link}}"><h1> {{prevPage}} </h1></a>
+        {{else}}
+        <a href="/problems?page=1{{link}}"><h1> << </h1></a>
+        <a href="/problems?page={{prevPage}}{{link}}"><h1> {{prevPage}} </h1></a>
+        {{/if}}
+    {{/if}}
+    {{#if hasPage}}<h1 style="color: blue;">{{pageNumber}}</h1>{{/if}}
+    {{#if hasNextPage}}
+        {{#if _status}}
+        <a href="/problems?page={{nextPage}}{{link}}"><h1> {{nextPage}} </h1></a>
+        <a href="/problems?page={{lastPage}}{{link}}"><h1> >> </h1></a>
+        {{else}}
+        <a href="/problems?page={{nextPage}}{{link}}"><h1> {{nextPage}} </h1></a>
+        <a href="/problems?page={{lastPage}}{{link}}"><h1> >> </h1></a>
+        {{/if}}
+    {{/if}}
+</main>

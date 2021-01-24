@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Leet Code</title>
+<link href="/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<!--  Free CSS Templates from www.templatemo.com -->
+<div id="templatemo_container">
+	<div id="templatemo_menu">
+    	<ul>
+            <li><a href="/" class="current"><img src="/images/leetcode.jpg" width="150px"></a></li>
+            <li><a href="/problems">Danh sách đề bài</a></li>   
+            {{#if user}}
+            <li><a href="/users/infor">Tài khoản</a></li>
+            <li><a href="/users/logout">Đăng xuất</a></li>
+            {{else}}
+            <li><a href="/users/signin">Đăng nhập</a></li>  
+            <li><a href="/users/signup">Đăng ký</a></li> 
+            {{/if}}
+    	</ul>
+    </div> <!-- end of menu -->
+    
+    
+    
+    <div id="templatemo_content">
+    	
+        <div id="templatemo_content_left">
+        	<div class="templatemo_content_left_section">
+            	<h1>Mục</h1>
+                <ul>
+                    <li><a href="/problems">Danh sách đề bài</a></li>
+                    <li><a href="/users/infor">Tài khoản</a></li>
+                    <li><a href="/"></a></li>
+                    <li><a href="/"></a></li>
+                    <li><a href="/"></a></li>
+                    <li><a href="/"></a></li>
+                    <li><a href="/"></a></li>
+            	</ul>
+            </div>
+			<div class="templatemo_content_left_section">
+            	<h1>Tìm kiếm</h1>
+                    <input id="search" type ="text"/>
+                    <input type="image" onclick="search()" src="/images/btn_search.gif"/>
+            </div>
+            
+        </div> <!-- end of content left -->
+        
+        <div id="templatemo_content_right">
+            {{{body}}}
+        </div> <!-- end of content right -->
+    
+    	<div class="cleaner_with_height">&nbsp;</div>
+    </div> <!-- end of content -->
+    
+    <div id="templatemo_footer">
+	        <a href="/">Trang chủ</a> | <a href="/problems">Danh sách đề bài</a>
+            
+        <!-- Credit: www.templatemo.com -->	</div> 
+</div> <!-- end of container -->
+</body>
+</html>
+
+<script>
+ function search()
+ {
+    var q = document.getElementById("search").value;
+    if (q!="")
+    {
+            window.location="/problems?q="+q;
+    }
+    else
+    {
+            window.location="/problems";
+    }
+ }
+</script>

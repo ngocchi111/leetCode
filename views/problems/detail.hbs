@@ -1,0 +1,36 @@
+<ul>
+      <img src="{{problem.cover}}" style="width:300px; height:350px">
+      <h1>{{problem.title}}</h1>
+      <p>Tác giả: {{problem.author}}</p>
+      <p>Thể loại: {{problem.catalog}}</p>
+      <p><strong> {{problem.basePrice}} VND</strong></p>
+      <p>{{problem.detail}}</p>
+      <div class="add_button"><a href="/problems/addToCart/{{problem._id}}">Thêm vào giỏ hàng</a></div>
+</ul>
+<br>
+<form method="POST">
+<h1> Bình luận </h1>
+<textarea required placeholder="Viết bình luận..." id="comment" name="comment" rows="3" cols="100%"></textarea>
+<br><input type="hidden" value="{{problem._id}}" name="id"><input type="hidden" value="{{problem.title}}" name="title">
+{{#if user}}
+<button style="cursor: pointer;" type="submit">Thêm bình luận</button>
+{{else}}
+<button style="cursor: pointer;" disabled>Thêm bình luận</button>
+{{/if}}
+{{#each comments}}
+  <p><strong>{{name}} ({{dateTime}}): {{comment}} </strong></p>
+{{/each}}
+</form>
+
+  <main>
+    <input type="hidden" name="page" id="page">
+  {{#if hasPrevPage}}
+        <a href="/problems/detail/{{problem._id}}?page=1"><button style="cursor: pointer;"  onclick="page(1)"> << </button></a>
+        <a href="/problems/detail/{{problem._id}}?page={{prevPage}}"><button style="cursor: pointer;"  onclick="page({{prevPage}})">{{prevPage}}</button></a>
+    {{/if}}
+    {{#if hasPage}}<button disabled>{{pageNumber}}</button>{{/if}}
+    {{#if hasNextPage}}
+        <a href="/problems/detail/{{problem._id}}?page={{nextPage}}"><button style="cursor: pointer;"  onclick="page({{nextPage}})">{{nextPage}}</button></a>
+        <a href="/problems/detail/{{problem._id}}?page={{lastPage}}"><button style="cursor: pointer;"  onclick="page({{lastPage}})"> >> </button></a>
+    {{/if}}
+    </main>
