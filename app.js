@@ -38,6 +38,10 @@ app.use(passport.session());
 
 app.use(function (req, res, next){
   res.locals.user=req.user;
+  if (req.user)
+  res.locals.isGV = (String(req.user.job)=="Giáo Viên");
+  else
+  res.locals.isGV = null;
   next();
 });
 

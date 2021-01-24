@@ -1,14 +1,17 @@
 <ul>
-      <div>{{problem.question}}</div>
+      <p>{{problem.ID}} - {{problem.name}}</p>
+      <textarea value="{{problem.question}}" readonly rows="20" cols="90%">{{problem.question}}</textarea>
 </ul>
 
       <a href="/problems/submit/{{problem.ID}}"><button style="cursor: pointer;">Nộp bài</button></a>
-
+      {{#if isGV}}
+      <a href="/problems/addTest/{{problem.ID}}"><button style="cursor: pointer;">Thêm testcase</button></a>
+      {{/if}}
 <br>
 <form method="POST">
 <h1> Bình luận </h1>
 <textarea required placeholder="Viết bình luận..." id="comment" name="comment" rows="3" cols="100%"></textarea>
-<br><input type="hidden" value="{{problem.ID}}" name="id"><input type="hidden" value="{{problem.title}}" name="title">
+<br><input type="hidden" value="{{problem.ID}}" name="id">
 {{#if user}}
 <button style="cursor: pointer;" type="submit">Thêm bình luận</button>
 {{else}}

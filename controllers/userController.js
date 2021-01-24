@@ -36,6 +36,7 @@ exports.add= async (req,res,next)=>
         username: req.body.username,
         email: req.body.email,
         password: req.body.password,
+        job: req.body.job
     };
     await userModel.add(newUser);
     res.redirect('/users/signin');

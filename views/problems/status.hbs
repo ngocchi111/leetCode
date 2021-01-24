@@ -1,0 +1,43 @@
+<table> 
+  <tr>
+    <td width="10%">Tên</td>
+    <td width="35%">TÊN BÀI</td>
+    <td width="10%">MÃ BÀI</td>
+    <td width="10%">Điểm</td>
+    <td width="25%">Ngày</td>
+    <td width="10%">Ngôn Ngữ</td>
+  </tr>
+  {{#each codes}}
+  <tr>
+    <td width="10%">{{username}}</td>
+    <td width="35%"><a href="/problems/question/{{ID}}">{{name}}</a></td>
+    <td width="10%"><a href="/problems/question/{{ID}}">{{ID}}</a></td>
+    <td width="10%">{{point}}</td>
+    <td width="25%">{{dateTime}}</td>
+    <td width="10%">{{language}}</td>
+  </tr>
+  {{/each}}
+</table>
+
+
+<main>
+    {{#if hasPrevPage}}
+        {{#if _status}}
+        <a href="/problems?page=1{{link}}"><h1> << </h1></a>
+        <a href="/problems?page={{prevPage}}{{link}}"><h1> {{prevPage}} </h1></a>
+        {{else}}
+        <a href="/problems?page=1{{link}}"><h1> << </h1></a>
+        <a href="/problems?page={{prevPage}}{{link}}"><h1> {{prevPage}} </h1></a>
+        {{/if}}
+    {{/if}}
+    {{#if hasPage}}<h1 style="color: blue;">{{pageNumber}}</h1>{{/if}}
+    {{#if hasNextPage}}
+        {{#if _status}}
+        <a href="/problems?page={{nextPage}}{{link}}"><h1> {{nextPage}} </h1></a>
+        <a href="/problems?page={{lastPage}}{{link}}"><h1> >> </h1></a>
+        {{else}}
+        <a href="/problems?page={{nextPage}}{{link}}"><h1> {{nextPage}} </h1></a>
+        <a href="/problems?page={{lastPage}}{{link}}"><h1> >> </h1></a>
+        {{/if}}
+    {{/if}}
+</main>

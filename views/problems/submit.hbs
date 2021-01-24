@@ -1,4 +1,12 @@
-<form method="POST" enctype="multipart/form-data">
-    <textarea rows="10" cols="80%">........</textarea>
+
+<form method="POST" >
+    <input type="hidden" name ="ID" value="{{problem.ID}}">
+    <input type="hidden" name ="name" value="{{problem.name}}">
+    <input type="file" value="Chọn Tệp" name="file">
+    <textarea rows="25" cols="90%" name="file">........</textarea>
+    {{#if user}}
     <button type="submit" style="cursor: pointer">Nộp</button></a>
+    {{else}}
+    <button style="cursor: pointer" disabled>Nộp</button>
+    {{/if}}
 </form>

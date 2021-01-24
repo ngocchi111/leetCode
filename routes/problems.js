@@ -9,6 +9,14 @@ router.get('/question/:id', problemController.details);
 
 router.post('/question/:id', problemController.addCmt);
 
-router.get('/submit/')
+router.get('/submit/:id', problemController.submit);
+
+router.post('/submit/:id', problemController.postSubmit);
+
+router.get('/addtest/:id', problemController.addTest);
+
+router.post('/addtest/:id', problemController.postTest);
+
+router.get('/status', problemController.status);
 
 module.exports = router;

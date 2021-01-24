@@ -28,7 +28,7 @@ exports.add = async (newUser) =>
             password: hash,
             email: newUser.email,
             status: 'active',
-            blance: 0,
+            job: newUser.job
         }
         userCollection.insertOne(user);
         });
