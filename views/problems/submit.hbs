@@ -2,7 +2,10 @@
 <form method="POST" >
     <input type="hidden" name ="ID" value="{{problem.ID}}">
     <input type="hidden" name ="name" value="{{problem.name}}">
-    <input type="file" value="Chọn Tệp" name="file">
+    <input type="file" value="Chọn Tệp" name="file"> 
+    <select id="language" name="language">
+            <option value="C/C++">C/C++</option>
+      </select>
     <textarea rows="25" cols="90%" name="file">........</textarea>
     {{#if user}}
     <button type="submit" style="cursor: pointer">Nộp</button></a>
