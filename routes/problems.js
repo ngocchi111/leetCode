@@ -19,4 +19,9 @@ router.post('/addtest/:id', problemController.postTest);
 
 router.get('/status', problemController.status);
 
+router.get('/addProblem', problemController.addProblem);
+
+router.post('/addProblem', problemController.postProblem);
+
+
 module.exports = router;

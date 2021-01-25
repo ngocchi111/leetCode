@@ -1,0 +1,34 @@
+<form method="POST" onsubmit="return testSubmit()">
+    <a>Tên bài</a>
+    <input name ="name">
+    <br>
+    <a>Mã bài</a>
+    <input name ="ID" id="ID">
+    <noti class="from-label" id="is_problem"></noti>
+    <br>
+    <a>Đề bài</a>
+    <textarea cols="90%" rows="10" name="question"></textarea>
+    <button type="submit" style="cursor: pointer">Thêm</button></a>
+</form>
+
+<script>
+function testSubmit()
+    {
+        const problem = document.getElementById("ID").value;
+        var is = false;
+        const problems= {{{json problems}}};
+        for (var i=0;i<problems.length;i++)
+        {
+            if (String(problems[i].ID) == String(problem))
+                is = true;
+        }
+        if (is)
+              {
+                  document.getElementById("is_problem").innerHTML="Mã bài đã được sử dụng";
+                  return false;
+              }
+        else
+        document.getElementById("is_problem").innerHTML="";
+        return true;
+    }
+</script>

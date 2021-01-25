@@ -147,3 +147,32 @@ exports.postTest = async (req, res, next) =>
     await problemModel.addTest(test);
     res.redirect('/problems/addtest/'+test.ID+'?noti=true');
 }
+
+
+exports.addProblem = async (req, res, next) =>
+{
+    if (req.user)
+    {
+        if (String(req.user.job)=="Giáo Viên")
+        {
+            const filter ={};
+            const problemTotal = await problemModel.count(filter);
+            const problems =  await problemModel.list(filter, 1, problemTotal);
+            res.render('problems/addProblems', {problems});
+        }
+        else 
+            res.render('problems/notAddProblem');
+    }
+    else res.redirect('/users/signin');
+}
+
+exports.postProblem = async (req, res, next) =>
+{
+    const test = {};
+    test.ID = req.body.ID;
+    test.name = req.body.name;
+    test.question = req.body.question;
+    test.username = req.user.username;
+    await problemModel.addProblem(test);
+    res.redirect('/problems/question/'+test.ID);
+}

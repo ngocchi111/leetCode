@@ -51,3 +51,9 @@ exports.countCode= async (filter) =>{
     const count = await codesCollection.count(filter);
     return count;
 }
+
+exports.addProblem=async(obj)=>{
+    const problemCollection = db().collection('problems');
+    await problemCollection.insertOne(obj);
+    return problemCollection;
+}
